@@ -12,7 +12,7 @@ docker run -it --rm \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -e NVIDIA_DRIVER_CAPABILITIES=graphics \
     --runtime=nvidia \
--e CONTAINER_NAME=ros-melodic-dev \
+-e CONTAINER_NAME=ros-humble-dev \
 -e USER=$USER \
 --workdir=/home/$USER \
 -v "/etc/group:/etc/group:ro" \
@@ -22,6 +22,6 @@ docker run -it --rm \
 -v "/home/$USER/:/home/$USER/" \
 -v "/run/user/1000:/run/user/1000" \
 --device=/dev/dri:/dev/dri \
---name=ros-melodic-dev \
+--name=ros-humble-dev \
 --privileged \
-osrf/ros:melodic-desktop-full
+ros-humble-dev:latest

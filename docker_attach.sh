@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -it ros2-humble-dev bash
+docker exec -it ros-humble-dev bash
