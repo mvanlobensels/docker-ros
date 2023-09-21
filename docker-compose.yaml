@@ -1,0 +1,26 @@
+version: '3'
+services:
+  ros-humble-dev:
+    image: osrf/ros:humble-desktop
+    container_name: ros-humble-dev
+    network_mode: host
+    user: "${UID}:${GID}"
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_GRAPHICSSYSTEM=native
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/etc/group:/etc/group:ro"
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/etc/shadow:/etc/shadow:ro"
+      - "/etc/sudoers.d:/etc/sudoers.d:ro"
+      - "/home/${USER}:/home/${USER}"
+      - "/run/user/${UID}:/run/user/${UID}"
+    devices:
+      - "/dev/dri:/dev/dri"
+    privileged: true
+    working_dir: "/home/${USER}"
+    stdin_open: true
+    tty: true
